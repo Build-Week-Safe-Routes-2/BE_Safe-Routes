@@ -1,6 +1,8 @@
 const knex = require('knex');
-const knexConfig = require('../knexfile.js')
 
-const db = knex(knexConfig[process.env.NODE_ENV || 'production']); //for heroku
+const secrets = require('../data/secrets.js')
 
-module.exports = db;
+const environment = secrets.environment || 'development';
+const knexConfig = require('../knexfile.js')[environment]
+
+module.exports = knex(knexConfig);
