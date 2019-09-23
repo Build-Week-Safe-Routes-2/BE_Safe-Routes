@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 // });
 
 router.get('/users', (req, res) => {
-    db.select('*').from('users')
+    db.select('*').from('info')
         .then(acc => { res.status(200).json(acc) })
         .catch(err => { res.json(err) })
 })
