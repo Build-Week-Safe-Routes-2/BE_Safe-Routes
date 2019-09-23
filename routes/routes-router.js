@@ -1,7 +1,8 @@
 const express = require('express');
 const helmet = require('helmet')
-const Register = require('./routes-model.js');
+const SafeRoutes = require('./routes-model.js');
 const restricted = require('../auth/restricted-middleware')
+const db = require('../data/dbConfig.js');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 
@@ -13,4 +14,11 @@ router.get('/', (req, res) => {
 
 });
 
+router.get('/users', (req, res) => {
+    SafeRoutes.find()
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => res.send(err));
+});
 module.exports = router;
