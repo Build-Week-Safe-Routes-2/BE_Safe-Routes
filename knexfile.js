@@ -32,16 +32,16 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      URI: 'postgres://ljkjxvqsidrkar:d34dbf6f44dd00b0d3118a3c80b3a996b6946f810530e934d58268b19cffe4e6@ec2-174-129-27-3.compute-1.amazonaws.com:5432/d38remnraggfnh'
+      directory: process.env.DATABASE_URL,
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    pool: {},
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: './data/migrations'
+    },
+    seeds: {
+      direcotry: './data/seeds'
     }
   }
 
