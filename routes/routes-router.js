@@ -14,11 +14,18 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/users', (req, res) => {
-    SafeRoutes.find()
-        .then(users => {
-            res.json(users);
-        })
-        .catch(err => res.send(err));
-});
+// router.get('/users', (req, res) => {
+//     SafeRoutes.find()
+//         .then(users => {
+//             console.log('users =>', users)
+//             res.json(users);
+//         })
+//         .catch(err => res.send(err));
+// });
+
+router.get('/data', (req, res) => {
+    db.select('*').from('info')
+        .then(acc => { res.status(200).json(acc) })
+        .catch(err => { res.json(err) })
+})
 module.exports = router;
