@@ -13,7 +13,7 @@ const server = express();
 
 
 server.use(express.json());
-// server.use('/api', RoutesRouter);
+server.use('/api', RoutesRouter);
 
 
 module.exports = server;
