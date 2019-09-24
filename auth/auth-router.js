@@ -40,9 +40,9 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
     // implement login
-    let { username, password } = req.body;
+    let { email, password } = req.body;
 
-    SafeRoutes.findBy({ username })
+    SafeRoutes.findBy({ email })
         .first()
         .then(user => {
             //check
@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
 
                 const token = generateToken(user);
                 // res.status(200).json({ token });
-                res.status(200).json({ message: `Welcome ${user.username}!`, token });
+                res.status(200).json({ message: `Welcome ${user.email}!`, token });
             } else {
                 res.status(401).json({ message: 'Invalid Credentials' });
             }
@@ -66,7 +66,7 @@ router.post('/login', (req, res) => {
 
 function generateToken(user) {
     const payload = {
-        username: user.username,
+        email: user.email,
     }
 
     const options = {

@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
             } else {
                 //token is good
                 //maybe add the user to the req object
-                req.user = { username: decodedToken.username }
+                req.user = { email: decodedToken.email }
                 next();
             }
         });
