@@ -14,9 +14,47 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/data', restricted, (req, res) => {
-    db.select('*').from('info')
-        .then(acc => { res.status(200).json(acc) })
-        .catch(err => { res.json(err) })
+// router.get('/data', restricted, (req, res) => {
+//     db.select('*').from('info')
+//         .then(acc => { res.status(200).json(acc) })
+//         .catch(err => { res.json(err) })
+// })
+
+// router.get('/data/position', (req, res) => {
+//     db('position')
+//         .then(pos => { res.status(200).json(pos) })
+//         .catch(err => { res.status(500).json(err) })
+// })
+
+router.get('/data/', (req, res) => {
+    db.select().from('position')
+        .then((poS) => {
+            return db.select().from('info')
+                .then((infoS) => {
+                    const insertobj = [];
+
+                    infoS.map((info, i) => {
+                        insertobj.push({
+                            ...info,
+                            position: {
+                                ...poS[i]
+                            }
+                        })
+                    })
+                    res.status(200).json(insertobj)
+                })
+                .catch(err => { res.status(500).json(err) })
+
+        })
+        .catch(err => { res.status(500).json(err) })
+
+
+
+
+    // db('position as p').findById(id)
+    // db('position as p')
+    //     .leftJoin('info as i', 'i.id', 'p.pos_id')
+    //     .then(pos => { res.status(200).json(pos) })
+    //     .catch(err => { res.status(500).json(err) })
 })
 module.exports = router;
