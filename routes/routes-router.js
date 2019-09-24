@@ -23,8 +23,8 @@ router.get('/', (req, res) => {
 //         .catch(err => res.send(err));
 // });
 
-router.get('/users', (req, res) => {
-    db.select('*').from('users')
+router.get('/data', (req, res) => {
+    db.select('*').from('info')
         .then(acc => { res.status(200).json(acc) })
         .catch(err => { res.json(err) })
 })
