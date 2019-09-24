@@ -4,6 +4,7 @@ module.exports = {
 
   development: {
     client: 'sqlite3',
+    useNullAsDefault: true,
     connection: {
       filename: './data/db.db3'
     },
@@ -17,6 +18,7 @@ module.exports = {
 
   production: {
     client: 'pg',
+    useNullAsDefault: true,
     connection: {
       directory: process.env.DATABASE_URL,
     },
