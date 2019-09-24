@@ -6,7 +6,6 @@ exports.up = function (knex) {
         data.decimal('budget').notNullable();
         data.decimal('latitude').notNullable();
         data.decimal('longitude').notNullable();
-        data.string('position')
 
     });
 
