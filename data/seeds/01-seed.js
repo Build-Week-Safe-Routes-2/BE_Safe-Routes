@@ -5,15 +5,15 @@ exports.seed = function (knex, Promise) {
         .then(function () {
             // Inserts seed entries
             return knex('info').insert([
-                { id: 1, name: 'Ace', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 2, name: 'Roman', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 3, name: 'Nick', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 4, name: 'Ian', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 5, name: 'Nayomi', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 6, name: 'Sesinos', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 7, name: 'Timothy', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 8, name: 'Sarmen', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 },
-                { id: 9, name: 'Flo from Progressive', budget: 4000.56, longitude: 76.15157, latitude: 76.15157 }
+                { id: 1, witness: 'Ace', traffic: 'moderate' },
+                { id: 2, witness: 'Roman', traffic: 'dangerous' },
+                { id: 3, witness: 'Nick', traffic: 'light' },
+                { id: 4, witness: 'Ian', traffic: 'moderate' },
+                { id: 5, witness: 'Nayomi', traffic: 'dangerous' },
+                { id: 6, witness: 'Sesinos', traffic: 'moderate' },
+                { id: 7, witness: 'Timothy', traffic: 'light' },
+                { id: 8, witness: 'Sarmen', traffic: 'moderate' },
+                { id: 9, witness: 'Flo from Progressive', traffic: 'moderate' }
             ]);
         });
 };

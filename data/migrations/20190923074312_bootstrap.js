@@ -1,11 +1,10 @@
 
 exports.up = function (knex) {
     return knex.schema.createTable('info', data => {
-        data.increments();
-        data.string('name').notNullable().unique();
-        data.decimal('budget').notNullable();
-        data.decimal('latitude').notNullable();
-        data.decimal('longitude').notNullable();
+        data.increments().unique();
+        data.string('witness').notNullable();
+        data.string('traffic').notNullable();
+
 
     });
 

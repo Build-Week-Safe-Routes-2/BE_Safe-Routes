@@ -14,11 +14,11 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/data', restricted, (req, res) => {
-    db.select('*').from('info')
-        .then(acc => { res.status(200).json(acc) })
-        .catch(err => { res.json(err) })
-})
+// router.get('/data', restricted, (req, res) => {
+//     db.select('*').from('info')
+//         .then(acc => { res.status(200).json(acc) })
+//         .catch(err => { res.json(err) })
+// })
 
 // router.get('/data/position', (req, res) => {
 //     db('position')
@@ -26,10 +26,10 @@ router.get('/data', restricted, (req, res) => {
 //         .catch(err => { res.status(500).json(err) })
 // })
 
-router.get('/data/pj', (req, res) => {
+router.get('/data/', (req, res) => {
     db.select().from('position')
         .then((poS) => {
-            db.select().from('info')
+            return db.select().from('info')
                 .then((infoS) => {
                     const insertobj = [];
 
@@ -41,7 +41,7 @@ router.get('/data/pj', (req, res) => {
                             }
                         })
                     })
-                    res.status(200).json({ insertobj })
+                    res.status(200).json(insertobj)
                 })
                 .catch(err => { res.status(500).json(err) })
 
