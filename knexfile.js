@@ -38,10 +38,10 @@ module.exports = {
     },
     pool: {},
     migrations: {
-      tableName: './data/migrations'
+      directory: './data/migrations'
     },
     seeds: {
-      direcotry: './data/seeds'
+      directory: './data/seeds'
     }
   }
 
