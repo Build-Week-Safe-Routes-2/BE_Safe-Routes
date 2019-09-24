@@ -7,23 +7,14 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    const name = req.query.name
-    res.status(200).json({ message: `Welcome person!` });
+    const name = req.query.username
+    res.status(200).json({ message: `Welcome!` });
 
     // res.send(`The hash for ${name} is ${hash}`)
 
 });
 
-// router.get('/users', (req, res) => {
-//     SafeRoutes.find()
-//         .then(users => {
-//             console.log('users =>', users)
-//             res.json(users);
-//         })
-//         .catch(err => res.send(err));
-// });
-
-router.get('/data', (req, res) => {
+router.get('/data', restricted, (req, res) => {
     db.select('*').from('info')
         .then(acc => { res.status(200).json(acc) })
         .catch(err => { res.json(err) })
