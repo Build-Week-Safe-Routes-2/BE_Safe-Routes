@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    const name = req.query.username
+    const name = req.query.email
     res.status(200).json({ message: `Welcome!` });
 
     // res.send(`The hash for ${name} is ${hash}`)
@@ -29,7 +29,8 @@ router.get('/', (req, res) => {
 router.get('/data/', (req, res) => {
     db.select().from('position')
         .then((poS) => {
-            return db.select().from('info')
+            // return 
+            db.select().from('info')
                 .then((infoS) => {
                     const insertobj = [];
 
