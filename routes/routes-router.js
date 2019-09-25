@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 //         .catch(err => { res.status(500).json(err) })
 // })
 
-router.get('/data/', (req, res) => {
+router.get('/data', (req, res) => {
     db.select().from('position')
         .then((poS) => {
             // return 
