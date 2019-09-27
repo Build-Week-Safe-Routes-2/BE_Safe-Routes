@@ -1,8 +1,8 @@
 exports.up = function (knex) {
     return knex.schema.createTable('info', data => {
         data.increments().unique();
-        data.decimal('LATITUDE').notNullable();
-        data.decimal('LONGITUD').notNullable();
+        data.float('LATITUDE').notNullable();
+        data.float('LONGITUD').notNullable();
         data.integer('ROUTE').notNullable();
         data.integer('TYP_INT').notNullable();
         data.integer('YEAR').notNullable();
