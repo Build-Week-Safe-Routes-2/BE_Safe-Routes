@@ -5,8 +5,8 @@ exports.seed = function (knex, Promise) {
 
         {
             id: 1,
-            LATITUDE: 33.58986944,
-            LONGITUD: -86.12425278,
+            LATITUDE: "33.58986944",
+            LONGITUD: "-86.12425278",
             ROUTE: 1,
             TYP_INT: 1,
             YEAR: 2016,
@@ -22,8 +22,8 @@ exports.seed = function (knex, Promise) {
         },
         {
             id: 2,
-            LATITUDE: 44.54146944,
-            LONGITUD: -88.07543056,
+            LATITUDE: "44.54146944",
+            LONGITUD: "-88.07543056",
             ROUTE: 1,
             TYP_INT: 1,
             YEAR: 2016,
