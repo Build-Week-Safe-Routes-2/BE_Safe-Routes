@@ -38,6 +38,12 @@ router.get('/data', (req, res) => {
 //         .catch(err => { res.status(500).json(err) })
 // })
 
+router.get('/data/find', (req, res) => {
+    db('info')
+        .then(pos => { res.status(200).json(pos) })
+        .catch(err => { res.status(500).json(err) })
+})
+
 
 ////============/////
 

@@ -3,12 +3,19 @@ exports.up = function (knex) {
         data.increments().unique();
         data.decimal('LATITUDE').notNullable();
         data.decimal('LONGITUD').notNullable();
-        data.string('PROBABILITY_OF_ACCIDENT').notNullable();
-        data.string('RISK_LEVEL').notNullable();
-        data.integer('WEATHER').notNullable();
         data.integer('ROUTE').notNullable();
         data.integer('TYP_INT').notNullable();
-        data.string('TWAY_ID').notNullable();
+        data.integer('YEAR').notNullable();
+        data.integer('PERSONS').notNullable();
+        data.integer('STATE').notNullable();
+        data.integer('ST_CASE').notNullable();
+        data.integer('DAY').notNullable();
+        data.integer('MONTH').notNullable();
+        data.integer('HOUR').notNullable();
+        data.integer('FATALS').notNullable();
+        data.integer('DRUNK_DR').notNullable();
+        data.integer('MINUTE').notNullable();
+
     });
 
 };
